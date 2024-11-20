@@ -1,4 +1,5 @@
 const {crawlPage} = require('./crawl.js')
+const {printReport} = require('./report.js')
 async function main(){
     if(process.argv.length<3){
         console.log("No website provided")
@@ -13,9 +14,7 @@ async function main(){
     console.log(`Starting crawl of ${baseURL}`)
     const pages = await crawlPage(baseURL , baseURL , {})
 
-    for(page of Object.entries(pages)){
-        console.log(page)
-    }
+    printReport(pages)
 
 }
 
